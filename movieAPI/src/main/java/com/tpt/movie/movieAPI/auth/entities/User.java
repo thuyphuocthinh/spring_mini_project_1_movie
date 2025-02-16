@@ -1,5 +1,6 @@
 package com.tpt.movie.movieAPI.auth.entities;
 
+import com.tpt.movie.movieAPI.entities.ForgotPassword;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -49,6 +50,9 @@ public class User implements UserDetails {
 
     @OneToOne(mappedBy = "user")
     private RefreshToken refreshToken;
+
+    @OneToOne(mappedBy = "user")
+    private ForgotPassword forgotPassword;
 
     private boolean isEnabled = true;
 
