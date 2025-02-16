@@ -9,6 +9,7 @@ import com.tpt.movie.movieAPI.service.MovieService;
 import com.tpt.movie.movieAPI.utils.AppConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -43,6 +44,7 @@ public class MovieController {
         return new ResponseEntity<MovieDto>(movieService.getMovie(movieId), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/all")
     public ResponseEntity<List<MovieDto>> getAllMovieHandler() {
         return new ResponseEntity<List<MovieDto>>(movieService.getAllMovies(), HttpStatus.OK);
