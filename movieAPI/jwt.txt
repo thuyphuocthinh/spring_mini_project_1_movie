@@ -1,0 +1,25 @@
+1. Add spring security
+2. Add jwt dependency
+3. user entity
+4. user repo
+5. refresh token entity
+- refresh token
+- expired at
+- refresh tokens used
+...
+6. refresh token repo
+7. Application Config In terms of Security
+- Define Authentication Manager (define a manager managing authentication process)
+- Define Authentication Provider (Define the main authentication of the app - DAO - username, password)
+- Define Password Encoder (encode password)
+- Define Users Detail Service (load user by username from db)
+8. jwt service, refresh token service, auth filter service
+- jwt service => generate token, check token, sign key, ...
+- refresh token service => create and check refresh token
+- auth filter service => customize a new filter (jwt)
+
+Remember
+- DAO authentication provider is the only method to log in to the system
+- JWT is a filter for private requests
++ JWT filter => who are you
++ JWT filter => what can you do
